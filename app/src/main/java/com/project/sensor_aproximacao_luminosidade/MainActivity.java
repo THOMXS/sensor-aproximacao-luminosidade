@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView ivMicrofoneON, ivMicrofoneOFF;
+    private ImageView ivMicrofone;
 
     private SensorManager mSensorManager;
     private Sensor mLuz;
@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Tela = findViewById(R.id.Tela);
-        ivMicrofoneON = findViewById(R.id.ivMicrofoneON);
-        ivMicrofoneOFF = findViewById(R.id.ivMicrofoneOFF);
+        ivMicrofone = findViewById(R.id.ivMicrofone);
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         if (mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT) != null) {
@@ -50,9 +49,11 @@ public class MainActivity extends AppCompatActivity {
             float valores = event.values[0];
 
             if (valores >= 6 ) {
-                ivMicrofoneOFF.setImageResource(R.drawable.microfoneoff);
+                ivMicrofone.setImageResource(R.drawable.microfoneoff);
+
             } else {
-                ivMicrofoneON.setImageResource(R.drawable.microfoneon);
+                ivMicrofone.setImageResource(R.drawable.microfoneon);
+
             }
         }
     }
